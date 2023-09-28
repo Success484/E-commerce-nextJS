@@ -2,7 +2,7 @@
 import Image from 'next/image'
 // import React, { useState } from 'react'
 import style from '../styles/Style.module.css'
-import {BsFillSuitHeartFill, BsSearch} from 'react-icons/bs'
+import {BsFillSuitHeartFill, BsSearch, BsFire} from 'react-icons/bs'
 import Link from 'next/link'
 import { useState } from 'react'
 import { clothes  } from '../page'
@@ -127,7 +127,7 @@ export default function NewProduct({items}) {
 
 
       <div className=' container pt-16'>
-        <h2 className='font-medium text-2xl pb-4'>Categories</h2>
+        <h2 className='font-medium text-2xl pb-4 text-red-500'><BsFire/>Hot Offer</h2>
          <br />
          <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3'>
          {allItems}

@@ -18,16 +18,16 @@ export default function page({params}) {
            <form action="/payment" className="my-3">
           <section className='hover:bg-green-100 py-5 px-8 border-solid border-4 hover:border-gray-400 active:bg-blue-100 ease-in-out duration-300'>
           <input type="radio" id="price" name="fav_language" value="price" required />
-           <label for="price" className="leading-[24px] font-semibold">$9.99 for this image</label> 
+           <label for="price" className="leading-[24px] font-semibold">{items.price} {items.name}</label> 
           </section>
                        {/* <br /> */}
           <section className='hover:bg-green-100 py-5 px-8 border-solid border-4 hover:border-gray-400 active:bg-blue-100 
           focus:outline-none focus:ring focus:ring-violet-300 ease-in-out duration-300'>        
          <input type="radio" id="next" name="fav_language" value="next" required />
-           <label for="next" className="leading-[24px]">$2.49 for 1-month  <br /> <span className="ml-[20px]">10% per month</span></label>
+           <label for="next" className="leading-[24px]"> <span className="ml-[10px]">10% discount per month {items.price}</span></label>
         </section>
   <br />
-         <button type="button" className="bg-red-500 text-white py-5 hover:bg-red-600 hover:border hover:border-x-white px-[100px] rounded-[8px] leading-[24px]"><Link href="/payment">Proceed With Purchase</Link></button>
+         <button type="button" className="bg-red-500 text-white py-5 hover:bg-red-600 hover:border hover:border-x-white px-[100px] rounded-[8px] leading-[24px]"><a href="/payment">Proceed With Purchase</a></button>
          
 
          </form>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {FaFacebook, FaGoogle, FaInstagram, FaRegEnvelope} from 'react-icons/fa'
 import {HiOutlineUser} from 'react-icons/hi'
 import {MdLockOutline} from 'react-icons/md'
@@ -14,11 +15,11 @@ export default function App() {
       <span className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
 
 
-      <span className="w-3/5 bg-orange-600 text-white rounded-tr-2x1 rounded-br-2x1 py-36 px-12">
+      <span className="w-3/5 bg-red-500 text-white rounded-tr-2x1 rounded-br-2x1 py-36 px-12">
           <h2 className="text-3x1 font-bold mb-2">Hello, Friend</h2>
           <span className='border-2 w-10 border-white   inline-block mb-2'></span>
           <p className='mb-10'>Fill up personal information and start journey with us.</p>
-          <a href="login" className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-orange-600">Sign in</a>
+          <a href="login" className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-red-500">Sign in</a>
         </span>
 
 
@@ -27,9 +28,9 @@ export default function App() {
             <span className="text-black">Wares</span>
             </div>
             <span className="py-10">
-              <h2 className="text-3x1 font-bold text-orange-600 mb-2">Sign in to account</h2>
+              <h2 className="text-3x1 font-bold text-red-500 mb-2">Sign in to account</h2>
 
-              <span className='border-2 w-10 border-orange-500 inline-block mb-2'></span>
+              <span className='border-2 w-10 border-red-500 inline-block mb-2'></span>
                 <span className="flex justify-center my-2">
                   <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1'>
                   <FaFacebook className='text-sm' />
@@ -46,17 +47,18 @@ export default function App() {
                 {/* social icons section */}
                 <p className='text-200px'>or use your email account</p>
                 <span className='flex flex-col items-center'>
-
+                 <form action='/'>
                 <span className='bg-gray-100 mt-3 w-64 p-2 flex items-center mb-3'><HiOutlineUser className='text-gray-400 m-2'/>
-                  <input type='text' name='name' required placeholder='name' className='bg-gray-100 outline-none text-sm flex-1' />
+                 
+                  <input type='text' name='name' placeholder='name' className='bg-gray-100 outline-none text-sm flex-1' required/>
                   </span>
 
                   <span className='bg-gray-100 w-64 p-2 flex items-center'><FaRegEnvelope className='text-gray-400 m-2'/>
-                  <input type='email' name='email' required placeholder='email' className='bg-gray-100 outline-none text-sm flex-1' />
+                  <input type='email' name='email' placeholder='email' className='bg-gray-100 outline-none text-sm flex-1' required/>
                   </span>
 
                   <span className='bg-gray-100 mt-3 w-64 p-2 flex items-center'><MdLockOutline className='text-gray-400 m-2'/>
-                  <input type='password' name='password' required placeholder='password' className='bg-gray-100 outline-none text-sm flex-1' />
+                  <input type='password' name='password' placeholder='password' className='bg-gray-100 outline-none text-sm flex-1' required/>
                   </span>
 
                   <span className='flex justify-between w-64 mb-5 mt-3'>
@@ -66,7 +68,8 @@ export default function App() {
                     <a href="#" className='text-xs'>Forgot password?</a>
                   </span>
 
-                  <a href="/" className="border-2 border-orange-500 rounded-full px-12 py-2 font-semibold hover:bg-orange-600 hover:text-white">Signup</a>
+                  <button type='button' className="border-2 border-red-500 rounded-full px-12 py-2 font-semibold hover:bg-red-500 hover:text-white"><Link href='/'>Signup</Link></button>
+                  </form>
                 </span>
           </span>
         </span>

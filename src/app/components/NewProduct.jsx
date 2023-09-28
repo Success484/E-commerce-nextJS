@@ -19,6 +19,8 @@ export default function NewProduct({items}) {
   function product(e) {
     setSearchitem(e.target.value)
   }
+
+  // for like
   
   
   const [quantity, setQuantity] = useState(0)
@@ -28,6 +30,8 @@ export default function NewProduct({items}) {
    const handleIncrement = () => {
       setQuantity (preCount => preCount +1)
   }
+
+// For adding
 
 
   const [quantitie, setQuantitie] = useState(0)
@@ -39,14 +43,12 @@ export default function NewProduct({items}) {
   }
 
     const itemfiltered = clothes.filter(pro => pro.name.toLowerCase().includes(searchitem.toLowerCase())) || pro.class
-
-
-
     const allItems = itemfiltered.length > 0 ? itemfiltered.map(pro => (
       <article key={pro.id} className={style.each}>
-      
+      <div className='flex justify-between'>
         <button type='button' onClick={handleIncrement}><BsFillSuitHeartFill size={25} className='hover:text-[#ff8f9c]'/></button>
-        <button type='button' onClick={IncrementPlus}><AiFillPlusCircle size={25} className='hover:text-[#ff8f9c]'/></button>
+        <button type='button' onClick={IncrementPlus}><HiOutlineShoppingBag size={25} className='hover:text-[#ff8f9c]'/></button>
+        </div>
       
         <Link href={`/items/${pro.name.split(' ').join('')}`}>
 
@@ -99,7 +101,7 @@ export default function NewProduct({items}) {
                     </div>
                     </div>
                     <div className='relative'>
-                    <HiOutlineShoppingBag />
+                    <Link href={"/"}><HiOutlineShoppingBag /></Link>
                     <div className='bg-red-600 rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px]
                     text-white grid place-items-center translate-y-'>
                       {quantitie}

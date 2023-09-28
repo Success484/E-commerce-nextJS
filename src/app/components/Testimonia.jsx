@@ -26,6 +26,7 @@ export const Testimonia = () => {
         <ImQuotesRight color='red' /></h2>
         <div className='m-auto grid items-center justify-center text-center '>
           <Image src="/text1.webp" height={70} width={100} alt="image" className={style.img}/>
+          <div>John.d</div>
         </div>
         </div>
         </div>
