@@ -20,8 +20,8 @@ export default function Page() {
       // Reset to the initial state after a delay (e.g., 2 seconds).
       setTimeout(() => {
         setIsDone(false);
-      }, 2000);
-    }, 2000); // Simulate a 2-second delay
+      }, 1100);
+    }, 1100); // Simulate a 2-second delay
   };
 
   return (
@@ -115,6 +115,8 @@ export default function Page() {
               </span>
             </label>
             <br />
+            
+            <Link href='/'>
             <button
   className={`${style.button} ${
     isLoading ? style.loading : ''
@@ -122,11 +124,9 @@ export default function Page() {
   onClick={handleClick}
   disabled={isLoading}
 >
-  <Link href="/">
   {isLoading ? 'Loading...' : isDone ? 'Completed' : 'Continue purchase'}
-</Link>
-</button>
-  
+  </button>
+  </Link>
           </form>
         </section>
       </section>

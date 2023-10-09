@@ -27,7 +27,9 @@ export default function page({params}) {
          <label for="next" className="leading-[24px]"> <span className="ml-[10px]">10% discount per month &#8358;{items.price}</span></label>
         </section>
   <br />
-         <button type="button" className="bg-red-500 text-white py-5 hover:bg-red-600 hover:border hover:border-x-white px-[100px] rounded-[8px] leading-[24px]"><a href="/payment">Proceed With Purchase</a></button>
+  <Link href="/payment">
+         <button type="button" className="bg-red-500 text-white py-5 hover:bg-red-600 hover:border hover:border-x-white px-[100px] rounded-[8px] leading-[24px]">Proceed With Purchase</button>
+  </Link>
          </form>
           </section>
           </section>
