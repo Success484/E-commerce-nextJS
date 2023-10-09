@@ -22,7 +22,7 @@ function Header() {
           </div>
 
 <div className='text-gray-500 text-[12px]'>
-   <b>FREE SHIPPING</b> THIS WEEK ORDER OVER - $55
+   <b>FREE SHIPPING</b> THIS WEEK ORDER OVER - &#8358;6,000
    </div>
 
 
@@ -32,9 +32,9 @@ function Header() {
     name='currency'
     id='currency'>
 
-    <option value='USD $'>USD $</option>
-    <option value='USD $'>EUR € </option>
-    <option value='USD $'>NGN ₦</option>
+    <option value='USD $'>USD &#36;</option>
+    <option value='USD $'>EUR &#8364; </option>
+    <option value='USD $'>NGN &#8358;</option>
     </select>
 
 

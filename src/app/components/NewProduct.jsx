@@ -2,13 +2,14 @@
 import Image from 'next/image'
 // import React, { useState } from 'react'
 import style from '../styles/Style.module.css'
-import {BsFillSuitHeartFill, BsSearch} from 'react-icons/bs'
+import {BsFillSuitHeartFill, BsSearch, BsCartFill} from 'react-icons/bs'
 import Link from 'next/link'
 import { useState } from 'react'
 import { clothes  } from '../page'
-import {HiOutlineShoppingBag} from 'react-icons/hi'
+// import {HiOutlineShoppingBag} from 'react-icons/hi'
 import {FiHeart} from 'react-icons/fi'
 import {BiUser} from 'react-icons/bi'
+import IconColorChanger from './Icon'
 import {AiFillPlusCircle} from 'react-icons/ai'
 // import { data } from 'autoprefixer'
 
@@ -42,24 +43,33 @@ export default function NewProduct({items}) {
       setQuantitie (preCount => preCount +1)
   }
 
+
+
+  const [iconColor, setIconColor] = useState('black')
+
+  const handleIconClick = () => {
+    // Change the color to a different one when clicked
+    setIconColor(iconColor === 'black' ? 'red' : 'black');
+  };
+
+
+  const [count, setCount] = useState(0);
+
+  // Function to toggle the counter
+  const toggleCount = () => {
+    setCount(count === 0 ? 1 : 0);
+  };
+
     const itemfiltered = clothes.filter(pro => pro.name.toLowerCase().includes(searchitem.toLowerCase())) || pro.class
     const allItems = itemfiltered.length > 0 ? itemfiltered.map(pro => (
       <article key={pro.id} className={style.each}>
-      <div className='flex justify-between'>
-        <button type='button' onClick={handleIncrement}><BsFillSuitHeartFill size={25} className='hover:text-[#ff8f9c]'/></button>
-        <button type='button' onClick={IncrementPlus}><HiOutlineShoppingBag size={25} className='hover:text-[#ff8f9c]'/></button>
-        </div>
-      
+        <button type='submit' onClick={handleIconClick}><IconColorChanger/></button>
         <Link href={`/items/${pro.name.split(' ').join('')}`}>
-
-
-                
         <Image src ={pro.image} alt = {pro.name} width={300} height={300} className={style.size}/>
-
-            
-
-
-            <h2 className='text-center pb-[18px] hover:text-[#ff8f9c]'>{pro.name} <br /> ₦{pro.price}</h2>
+            <h2 className='text-center pb-[18px] hover:text-[#ff8f9c]'>{pro.name} <br /> &#8358;{pro.price}</h2>
+            <div className='grid justify-items-end'>
+            <button type='submit' onClick={IncrementPlus}><BsCartFill size={25} className='hover:text-[#ff8f9c]'/></button>
+            </div>
         </Link>
     </article>
 
@@ -93,15 +103,15 @@ export default function NewProduct({items}) {
             <div className='hidden lg:flex gap-4 text-gray-500 text-[30px]'>
                 <BiUser />
 
-                <div className='relative'>
+                {/* <div className='relative'>
                     <FiHeart />
                     <div className='bg-red-600 rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px]
                     text-white grid place-items-center translate-y-'>
-                       {quantity}
+                       {count}
                     </div>
-                    </div>
+                    </div> */}
                     <div className='relative'>
-                    <Link href={"/"}><HiOutlineShoppingBag /></Link>
+                    <Link href={"/"}><BsCartFill /></Link>
                     <div className='bg-red-600 rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px]
                     text-white grid place-items-center translate-y-'>
                       {quantitie}

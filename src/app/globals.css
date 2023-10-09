@@ -40,11 +40,27 @@
   flex: 0 0 100%;
   min-width: 0;
  }
+ .image-with-text {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Set this based on your desired aspect ratio */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
- /* .embla__slide Image{
-  width: 90%;
-  height: 400px;
-  margin: auto;
-}  */
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency */
+  color: #fff; /* Text color */
+  padding: 10px;
+  text-align: center;
+}
 
+.text-overlay p {
+  margin: 0;
+}
 

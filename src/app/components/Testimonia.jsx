@@ -39,6 +39,7 @@ export const Testimonia = () => {
       <h2><ImQuotesLeft color='red'/> Amazing customer service. Great quality product, I got more than what I expected. Delivery of the Sarees to me was really fast. Truly impressed, keep it up, youre simply the best and definitely looking forward to more shoppings from you.<ImQuotesRight color='red'/></h2>
       <div className='m-auto grid items-center justify-center text-center '>
           <Image src="/text2.webp" height={70} width={100} alt="image" className={style.img}/>
+          <div>Jake.M</div>
         </div>
         </div>
         </div>
@@ -52,6 +53,7 @@ export const Testimonia = () => {
         <h2><ImQuotesLeft color='red'/> The products offered on this website are very unique. I Love my outfit!! The stitching is so perfect and worth the price. Perfect place to purchase Ethnic clothes.<ImQuotesRight color='red' /></h2>
         <div className='m-auto grid items-center justify-center text-center '>
           <Image src="/text3.webp" height={70} width={100} alt="image" className={style.img}/>
+          <div>Sam.P</div>
         </div>
         </div>
         </div>
