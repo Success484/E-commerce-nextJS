@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { BsFillExclamationOctagonFill } from 'react-icons/bs';
-import style from '../styles/Style.module.css'; // Make sure to import your CSS module
+import style from '../styles/Style.module.css';
 import Link from 'next/link';
 
 export default function Page() {
@@ -115,18 +115,18 @@ export default function Page() {
               </span>
             </label>
             <br />
-            
-            <Link href='/'>
-            <button
-  className={`${style.button} ${
-    isLoading ? style.loading : ''
-  } ${isDone ? style.done : ''}`}
-  onClick={handleClick}
-  disabled={isLoading}
->
-  {isLoading ? 'Loading...' : isDone ? 'Completed' : 'Continue purchase'}
-  </button>
-  </Link>
+
+           
+              <button
+                className={`${style.button} ${
+                  isLoading ? style.loading : ''
+                } ${isDone ? style.done : ''}`}
+                onClick={handleClick}
+                disabled={isLoading}
+                ><Link href='/'>
+                {isLoading ? 'Loading...' : isDone ? 'Completed' : 'Continue purchase'}
+                </Link>
+              </button>
           </form>
         </section>
       </section>
