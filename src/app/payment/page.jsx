@@ -2,12 +2,27 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { BsFillExclamationOctagonFill } from 'react-icons/bs';
-import style from '../styles/Style.module.css';
+import style from '../styles/Style.module.css'; // Make sure to import your CSS module
 import Link from 'next/link';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [isDone, setIsDone] = useState(false);
+
+  const [date, setDate] = useState('');
+
+  const handleDateChange = (event) => {
+    const inputValue = event.target.value;
+
+    // Check if the input value contains exactly two digits
+    if (/^\d{2}$/.test(inputValue)) {
+      // If two digits are entered, append "/" and update the state
+      setDate(inputValue + '/');
+    } else {
+      // If not, just update the state with the current input
+      setDate(inputValue);
+    }
+  };
 
   const handleClick = () => {
     setIsLoading(true);
@@ -20,8 +35,8 @@ export default function Page() {
       // Reset to the initial state after a delay (e.g., 2 seconds).
       setTimeout(() => {
         setIsDone(false);
-      }, 1100);
-    }, 1100); // Simulate a 2-second delay
+      }, 2000);
+    }, 2000); // Simulate a 2-second delay
   };
 
   return (
@@ -69,13 +84,15 @@ export default function Page() {
               <label htmlFor='date' className='mx-[8px]'>
                 <h2 className='mb-3 font-medium text-[17px]'>Date</h2>
                 <input
-                  type='text'
-                  name='date'
-                  id='date'
-                  placeholder='10/10'
-                  className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-[100px]'
-                  required
-                />
+                type='text'
+                name='date'
+                id='date'
+                placeholder='MM/YY' // Changed the placeholder to "MM/YY"
+                className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-[100px]'
+                value={date}
+                onChange={handleDateChange}
+                required
+              />
               </label>
 
               <label htmlFor='ccv'>
@@ -115,18 +132,15 @@ export default function Page() {
               </span>
             </label>
             <br />
-
-           
+            <Link href='/'>
               <button
-                className={`${style.button} ${
-                  isLoading ? style.loading : ''
-                } ${isDone ? style.done : ''}`}
+                className={`${style.button} ${isLoading ? style.loading : ''} ${isDone ? style.done : ''}`}
                 onClick={handleClick}
                 disabled={isLoading}
-                ><Link href='/'>
+              >
                 {isLoading ? 'Loading...' : isDone ? 'Completed' : 'Continue purchase'}
-                </Link>
               </button>
+            </Link>
           </form>
         </section>
       </section>

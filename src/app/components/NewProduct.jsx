@@ -1,17 +1,14 @@
 "use client"
 import Image from 'next/image'
-// import React, { useState } from 'react'
 import style from '../styles/Style.module.css'
-import {BsFillSuitHeartFill, BsSearch, BsCartFill} from 'react-icons/bs'
+import { BsSearch, BsCartFill } from 'react-icons/bs'
 import Link from 'next/link'
 import { useState } from 'react'
 import { clothes  } from '../page'
-// import {HiOutlineShoppingBag} from 'react-icons/hi'
-import {FiHeart} from 'react-icons/fi'
 import {BiUser} from 'react-icons/bi'
 import IconColorChanger from './Icon'
-import {AiFillPlusCircle} from 'react-icons/ai'
-// import { data } from 'autoprefixer'
+
+
 
 
 
