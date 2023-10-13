@@ -18,13 +18,12 @@ export const EmblaCarousel = () => {
           </div>
 
         <div className="embla__slide">
-        <Image src="/banner2.avif" className={style.banner} height={50} width={1300} alt="banner"  />
-        </div>
-
-        <div className="embla__slide">
         <Image src="/banner3.avif" className={style.banner} height={50} width={1300} alt="banner"  />
         </div>
         
+        <div className="embla__slide">
+        <Image src="/banner2.avif" className={style.banner} height={50} width={1300} alt="banner"  />
+        </div>
       </div>
     </div>
         

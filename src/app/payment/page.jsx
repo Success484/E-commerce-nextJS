@@ -24,24 +24,36 @@ export default function Page() {
     }
   };
 
-  const handleClick = () => {
-    setIsLoading(true);
+  const handlePurchase = () => {
+    if (areInputFieldsValid()) {
+      // Proceed with the purchase if input fields are valid
+      setIsLoading(true);
 
-    // Simulate an asynchronous action (e.g., API request) with a setTimeout.
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsDone(true);
-
-      // Reset to the initial state after a delay (e.g., 2 seconds).
+      // Simulate an asynchronous action (e.g., API request) with a setTimeout.
       setTimeout(() => {
-        setIsDone(false);
-      }, 2000);
-    }, 2000); // Simulate a 2-second delay
+        setIsLoading(false);
+        setIsDone(true);
+
+        // Reset to the initial state after a delay (e.g., 2 seconds).
+        setTimeout(() => {
+          setIsDone(false);
+        }, 2000);
+      }, 2000); // Simulate a 2-second delay
+    } else {
+      // Display a message to the user indicating that required fields are empty
+      alert('Please fill in all required fields.');
+    }
+  };
+
+  const areInputFieldsValid = () => {
+    // Add validation logic here, such as checking if required fields are not empty
+    // You can add more validation rules as needed
+    return document.getElementById('card').checkValidity() && document.getElementById('number').checkValidity() && document.getElementById('date').checkValidity() && document.getElementById('ccv').checkValidity();
   };
 
   return (
-    <section className='bg-blue-100 p-2'>
-      <section className='bg-white m-auto'>
+    <section className='bg-blue-100 p-8'>
+      <section className='bg-white m-auto p-10 w-[100%]'>
         <h2 className='font-semibold text-[25px]'>Payment</h2>
         <section className='grid justify-center'>
           <section className='flex justify-center space-x-10 mb-5'>
@@ -57,7 +69,7 @@ export default function Page() {
 
           {/* PAYMENT FORM */}
           <form action='#'>
-            <label htmlFor='card' className='mb-[50px]'>
+            <label htmlFor='card' className='mb-[100px]'>
               <h2 className='mb-3 font-medium text-[17px]'>Cardholder name</h2>
               <input
                 type='text'
@@ -67,14 +79,14 @@ export default function Page() {
                 className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-full'
               />
             </label>
-
+          <div className='sm:flex'></div>
             <section className='flex mt-5'>
               <label htmlFor='number'>
                 <h2 className='mb-3 font-medium text-[17px]'>Card number</h2>
                 <input
                   type='text'
-                  name='card-number'
                   required
+                  name='card-number'
                   id='number'
                   pattern='[0-9]{16}' // Corrected pattern
                   className='border-[2px] border-red-100 rounded-[8px] h-[40px]'
@@ -84,26 +96,26 @@ export default function Page() {
               <label htmlFor='date' className='mx-[8px]'>
                 <h2 className='mb-3 font-medium text-[17px]'>Date</h2>
                 <input
-                type='text'
-                name='date'
-                id='date'
-                placeholder='MM/YY' // Changed the placeholder to "MM/YY"
-                className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-[100px]'
-                value={date}
-                onChange={handleDateChange}
-                required
-              />
+                  type='text'
+                  name='date'
+                  id='date'
+                  placeholder='MM/YY' // Changed the placeholder to "MM/YY"
+                  className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-[100px]'
+                  value={date}
+                  onChange={handleDateChange}
+                  required // Add the required attribute
+                />
               </label>
 
               <label htmlFor='ccv'>
                 <h2 className='mb-3 font-medium text-[17px]'>CCV</h2>
                 <input
                   type='text'
+                  required // Add the required attribute
                   name='ccv'
                   id='ccv'
                   placeholder='000'
                   className='border-[2px] border-red-100 rounded-[8px] h-[40px] w-[100px]'
-                  required
                 />
               </label>
             </section>
@@ -132,15 +144,15 @@ export default function Page() {
               </span>
             </label>
             <br />
-            <Link href='/'>
               <button
                 className={`${style.button} ${isLoading ? style.loading : ''} ${isDone ? style.done : ''}`}
-                onClick={handleClick}
+                onClick={handlePurchase} // Use handlePurchase for the click event
                 disabled={isLoading}
               >
+            <Link href='/'>
                 {isLoading ? 'Loading...' : isDone ? 'Completed' : 'Continue purchase'}
-              </button>
             </Link>
+              </button>
           </form>
         </section>
       </section>

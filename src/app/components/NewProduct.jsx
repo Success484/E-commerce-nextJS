@@ -21,13 +21,13 @@ export default function NewProduct({items}) {
   // for like
   
   
-  const [quantity, setQuantity] = useState(0)
-  const handleDecrement = () => {
-      setQuantity (preCount => preCount -1)
-  }
-   const handleIncrement = () => {
-      setQuantity (preCount => preCount +1)
-  }
+  // const [quantity, setQuantity] = useState(0)
+  // const handleDecrement = () => {
+  //     setQuantity (preCount => preCount -1)
+  // }
+  //  const handleIncrement = () => {
+  //     setQuantity (preCount => preCount +1)
+  // }
 
 // For adding
 
@@ -64,10 +64,10 @@ export default function NewProduct({items}) {
         <Link href={`/items/${pro.name.split(' ').join('')}`}>
         <Image src ={pro.image} alt = {pro.name} width={300} height={300} className={style.size}/>
             <h2 className='text-center pb-[18px] hover:text-[#ff8f9c]'>{pro.name} <br /> &#8358;{pro.price}</h2>
+        </Link>
             <div className='grid justify-items-end'>
             <button type='submit' onClick={IncrementPlus}><BsCartFill size={25} className='hover:text-[#ff8f9c]'/></button>
             </div>
-        </Link>
     </article>
 
  
@@ -136,7 +136,7 @@ export default function NewProduct({items}) {
       <div className=' container pt-16'>
         <h2 className='font-medium text-2xl pb-4'>New Product</h2>
          <br />
-         <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3'>
+         <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3'>
          {allItems}
          </div>
          
